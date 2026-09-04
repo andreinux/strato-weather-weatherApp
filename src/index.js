@@ -21,6 +21,7 @@ async function getData(location){
         }
 
         const weatherData = await response.json();
+        console.log("Resolved address:", weatherData.resolvedAddress);
         console.log("Temperature: ",weatherData.currentConditions.temp);
         console.log("Feels Like: ",weatherData.currentConditions.feelslike);
         console.log("Humidity: ",weatherData.currentConditions.humidity);
@@ -33,6 +34,7 @@ async function getData(location){
     }
 }
 
+getData("City of naga");
 
 form.addEventListener("submit", (e)=> {
     e.preventDefault();
