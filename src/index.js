@@ -53,7 +53,7 @@ fUnitBtn.addEventListener("click", ()=> {
 })
 
 
-mUnit.addEventListener("click", ()=> {
+mUnitBtn.addEventListener("click", ()=> {
     unitGroup = "metric";
     getData(cityInput.value);
 })
