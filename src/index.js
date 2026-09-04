@@ -34,7 +34,7 @@ async function getData(location){
     }
 }
 
-getData("City of naga");
+getData("naga, cebu");
 
 form.addEventListener("submit", (e)=> {
     e.preventDefault();
