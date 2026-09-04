@@ -6,7 +6,12 @@ const apiKey = "5G228VLEJFUDAH365JTVPHJBW";
 
 const form = document.querySelector("#searchForm");
 const cityInput = document.querySelector("#cityInput");
+const fUnitBtn = document.querySelector("#fUnit");
+const mUnitBtn = document.querySelector("#mUnit"); 
 
+
+
+let unitGroup = "metric";
 
 
 
@@ -14,7 +19,7 @@ async function getData(location){
     try {
         console.log("Location:", location);
 
-        const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}?unitGroup=metric&include=current&key=${apiKey}&contentType=json`);
+        const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}?unitGroup=${unitGroup}&include=current&key=${apiKey}&contentType=json`);
 
         if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
@@ -42,4 +47,13 @@ form.addEventListener("submit", (e)=> {
 })
 
 
+fUnitBtn.addEventListener("click", ()=> {
+    unitGroup = "us";
+    getData(cityInput.value);
+})
 
+
+mUnit.addEventListener("click", ()=> {
+    unitGroup = "metric";
+    getData(cityInput.value);
+})
