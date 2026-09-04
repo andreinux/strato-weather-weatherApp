@@ -7,6 +7,9 @@ let location = "Cebu City";
 async function getData(){
     try {
         const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&include=current&key=${apiKey}&contentType=json`);
+        if (!response.ok) {
+    throw new Error(`HTTP error: ${response.status}`);
+}
         const weatherData = await response.json();
         console.log("Location: ",location);
         console.log("Temperature: ",weatherData.currentConditions.temp);
