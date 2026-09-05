@@ -9,6 +9,9 @@ const conditions = document.querySelector("#conditions");
 const feels = document.querySelector("#feelslike");
 const humidity = document.querySelector("#humidity");
 const windspeed = document.querySelector("#windspeed");
+const domtime = document.querySelector("#time");
+const domdate = document.querySelector("#date");
+const tempUnit = document.querySelector("#tempUnit");
 
 
 const form = document.querySelector("#searchForm");
@@ -40,6 +43,32 @@ async function getData(location){
         console.log("Wind Speed: ",weatherData.currentConditions.windspeed);
         console.log("Conditions: ",weatherData.currentConditions.conditions);
         
+        //formatting time
+
+const now = new Date();
+
+const time = now.toLocaleTimeString([], {
+    hour: "numeric",
+    minute: "2-digit"
+});
+
+console.log(time);
+//end--------------
+
+//date formatting
+
+const formattedDate = now.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    weekday: "long",
+    year: "numeric"
+});
+
+console.log(formattedDate);
+
+//end
+
+    
         slocation.forEach(slocation=> {
              slocation.textContent = weatherData.resolvedAddress;
         })
@@ -48,6 +77,17 @@ async function getData(location){
         feels.textContent = `Feels like: ${weatherData.currentConditions.feelslike}`;
         humidity.textContent = `Humidity: ${weatherData.currentConditions.humidity}`;
         windspeed.textContent = `Wind Speed: ${weatherData.currentConditions.windspeed}`;
+        domtime.textContent = time;
+        domdate.textContent = formattedDate;
+
+
+        //units
+
+        if (unitGroup === "metric"){
+            tempUnit.textContent = "°C";
+        }else{
+            tempUnit.textContent = "°F";
+        }
     }
     
     catch(error){
@@ -75,6 +115,6 @@ mUnitBtn.addEventListener("click", ()=> {
     unitGroup = "metric";
     getData(cityInput.value);
     mUnitBtn.classList.add("active");
-    fUnit.classList.remove("active");
+    fUnitBtn.classList.remove("active");
 
 })
