@@ -11,6 +11,11 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #0b132b 0%, #1c2541 60%, #3a506b 100%);
     font-family: "Inter", sans-serif;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 
