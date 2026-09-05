@@ -14,6 +14,8 @@ const domdate = document.querySelector("#date");
 const tempUnit = document.querySelectorAll(".tempUnit");
 const windUnit = document.querySelector("#windUnit");
 
+const forecastDays = document.querySelector("#forecastDays");   
+
 
 const form = document.querySelector("#searchForm");
 const cityInput = document.querySelector("#cityInput");
@@ -83,8 +85,17 @@ forecast.forEach(day => {
 
     console.log("Date:", formattedDate);
     console.log("High:", day.tempmax);
-    console.log("Low:", day.tempmin);
-    console.log("Conditions:", day.conditions);
+   
+
+       const forecastCard = document.createElement("div");
+    forecastCard.classList.add("forecastCard");
+
+    forecastCard.innerHTML = `
+        <h3>${formattedDate}</h3>
+        <p>${day.conditions}</p>
+    `;
+
+    forecastDays.appendChild(forecastCard);
 });
 
 //UI endpoint rendering
