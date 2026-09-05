@@ -11,7 +11,8 @@ const humidity = document.querySelector("#humidity");
 const windspeed = document.querySelector("#windspeed");
 const domtime = document.querySelector("#time");
 const domdate = document.querySelector("#date");
-const tempUnit = document.querySelector("#tempUnit");
+const tempUnit = document.querySelectorAll(".tempUnit");
+const windUnit = document.querySelector("#windUnit");
 
 
 const form = document.querySelector("#searchForm");
@@ -68,6 +69,26 @@ console.log(formattedDate);
 
 //end
 
+//forecast sidebar
+const forecast = weatherData.days.slice(1, 6);
+
+forecast.forEach(day => {
+    const date = new Date(day.datetime + "T00:00:00");
+
+    const formattedDate = date.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric"
+    });
+
+    console.log("Date:", formattedDate);
+    console.log("High:", day.tempmax);
+    console.log("Low:", day.tempmin);
+    console.log("Conditions:", day.conditions);
+});
+
+//UI endpoint rendering
+
     
         slocation.forEach(slocation=> {
              slocation.textContent = weatherData.resolvedAddress;
@@ -75,7 +96,7 @@ console.log(formattedDate);
         temp.textContent = weatherData.currentConditions.temp;
         conditions.textContent = weatherData.currentConditions.conditions;
         feels.textContent = `Feels like: ${weatherData.currentConditions.feelslike}`;
-        humidity.textContent = `Humidity: ${weatherData.currentConditions.humidity}`;
+        humidity.textContent = `Humidity: ${weatherData.currentConditions.humidity}%`;
         windspeed.textContent = `Wind Speed: ${weatherData.currentConditions.windspeed}`;
         domtime.textContent = time;
         domdate.textContent = formattedDate;
@@ -84,10 +105,23 @@ console.log(formattedDate);
         //units
 
         if (unitGroup === "metric"){
-            tempUnit.textContent = "°C";
+            tempUnit.forEach(tempUnit => {
+                tempUnit.textContent = "°C";
+            })
+           
+            windUnit.textContent = "km/h";
+
         }else{
-            tempUnit.textContent = "°F";
+            tempUnit.forEach(tempUnit => {
+                tempUnit.textContent = "°F";
+            })
+
+            windUnit.textContent = "mph";
         }
+
+        
+
+        
     }
     
     catch(error){

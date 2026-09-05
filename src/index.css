@@ -152,7 +152,9 @@ h1 {
     color: #DCE6EE;
 }
 
-
+.slocation {
+    margin-left: 1rem;
+}
 
 .Dcard {
     background-color:#1E293B;
@@ -184,6 +186,7 @@ h1 {
 }
 #tempDiv{
     grid-area: 2/1/3/5;
+    
 }
 .dataS {
     background-color: #2F2F2F44;
@@ -196,9 +199,18 @@ h1 {
 #temp {
     font-size: 4rem;
     display: inline;
+    margin-left: 2rem;
 }
-#tempUnit {
+.tempUnit {
     font-size: 4rem
+}
+
+.dataS .tempUnit {
+    font-size: 1.5rem;
+}
+
+.dataS #feelslike {
+    display: inline;
 }
 .slocation {
     font-size: 1.7rem;
