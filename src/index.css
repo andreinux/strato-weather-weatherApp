@@ -143,3 +143,24 @@ h1 {
     border-color: #94A3B8;
     box-shadow: 0 0 0 2px rgba(203, 213, 225, 0.12);
 }
+
+#dataCard {
+    height: 75vh;
+    width: 95vw;
+    margin-top: .5rem;  
+    display: flex;
+}
+
+
+
+.Dcard {
+    background-color:#1E293B;
+    border-radius: 20px;
+    margin-top: 1rem;
+    margin-left: .5rem;
+    border: 1px solid  #38BDF8;
+}
+
+#currWeather {
+    width:200%;
+}
