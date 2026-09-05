@@ -189,7 +189,15 @@ h1 {
     padding: 5px;
     color: white;
 }
-
+#temp {
+    font-size: 4rem;
+}
+.slocation {
+    font-size: 1.7rem;
+}
+.dataS {
+    font-size: 1.5rem;
+}
 #forecast {
     width: 70%;
 }

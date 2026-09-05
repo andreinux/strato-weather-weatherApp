@@ -3,9 +3,9 @@ import "./index.css"
 const apiKey = "5G228VLEJFUDAH365JTVPHJBW";
 
 //dom declarations
-const slocation = document.querySelector("#slocation");
+const slocation = document.querySelectorAll(".slocation");
 const temp = document.querySelector("#temp")
-const conditions = document.querySelector("#condtions");
+const conditions = document.querySelector("#conditions");
 const feels = document.querySelector("#feelslike");
 const humidity = document.querySelector("#humidity");
 const windspeed = document.querySelector("#windspeed");
@@ -39,8 +39,15 @@ async function getData(location){
         console.log("Humidity: ",weatherData.currentConditions.humidity);
         console.log("Wind Speed: ",weatherData.currentConditions.windspeed);
         console.log("Conditions: ",weatherData.currentConditions.conditions);
-
-
+        
+        slocation.forEach(slocation=> {
+             slocation.textContent = weatherData.resolvedAddress;
+        })
+        temp.textContent = weatherData.currentConditions.temp;
+        conditions.textContent = weatherData.currentConditions.conditions;
+        feels.textContent = `Feels like: ${weatherData.currentConditions.feelslike}`;
+        humidity.textContent = `Humidity: ${weatherData.currentConditions.humidity}`;
+        windspeed.textContent = `Wind Speed: ${weatherData.currentConditions.windspeed}`;
     }
     
     catch(error){
