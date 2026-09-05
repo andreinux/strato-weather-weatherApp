@@ -2,6 +2,13 @@ console.log("running...");
 import "./index.css"
 const apiKey = "5G228VLEJFUDAH365JTVPHJBW";
 
+//dom declarations
+const slocation = document.querySelector("#slocation");
+const temp = document.querySelector("#temp")
+const conditions = document.querySelector("#condtions");
+const feels = document.querySelector("#feelslike");
+const humidity = document.querySelector("#humidity");
+const windspeed = document.querySelector("#windspeed");
 
 
 const form = document.querySelector("#searchForm");
@@ -32,6 +39,8 @@ async function getData(location){
         console.log("Humidity: ",weatherData.currentConditions.humidity);
         console.log("Wind Speed: ",weatherData.currentConditions.windspeed);
         console.log("Conditions: ",weatherData.currentConditions.conditions);
+
+
     }
     
     catch(error){
