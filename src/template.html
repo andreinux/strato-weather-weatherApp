@@ -6,7 +6,15 @@
         <title>weather webApp/benj</title>
     </head>
     <body>
-        <h1>Weather App</h1>
+        <div class="card" id="header">
+            <h1>Strato Weather</h1>
+
+            <div id="toggle">
+                 <button id="fUnit">Farrenheit (US)</button>
+        <button id="mUnit" class="active">Celcius (Metric)</button>
+            </div>
+        </div>
+        
          <form id="searchForm">
             <legend> Search City</legend>
             <label for="cityInput">City </label>
@@ -14,7 +22,6 @@
             <button type="submit">Search</button>
 
         </form>
-        <button id="fUnit">Farrenheit (US)</button>
-        <button id="mUnit">Celcius (Metric)</button>
+       
     </body>
    </html>

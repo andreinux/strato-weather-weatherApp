@@ -50,10 +50,15 @@ form.addEventListener("submit", (e)=> {
 fUnitBtn.addEventListener("click", ()=> {
     unitGroup = "us";
     getData(cityInput.value);
+    fUnitBtn.classList.add("active");
+    mUnitBtn.classList.remove("active");
 })
 
 
 mUnitBtn.addEventListener("click", ()=> {
     unitGroup = "metric";
     getData(cityInput.value);
+    mUnitBtn.classList.add("active");
+    fUnit.classList.remove("active");
+
 })
