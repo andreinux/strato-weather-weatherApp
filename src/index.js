@@ -73,6 +73,7 @@ console.log(formattedDate);
 
 //forecast sidebar
 const forecast = weatherData.days.slice(1, 6);
+forecastDays.innerHTML = "";
 
 forecast.forEach(day => {
     const date = new Date(day.datetime + "T00:00:00");
@@ -89,10 +90,11 @@ forecast.forEach(day => {
 
        const forecastCard = document.createElement("div");
     forecastCard.classList.add("forecastCard");
-
+ 
+    
     forecastCard.innerHTML = `
         <h3>${formattedDate}</h3>
-        <p>${day.conditions}</p>
+        <p>${day.conditions}</p>    
     `;
 
     forecastDays.appendChild(forecastCard);
