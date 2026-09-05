@@ -82,7 +82,7 @@ forecast.forEach(day => {
         weekday: "long",
         month: "long",
         day: "numeric"
-    });
+    }); 
 
     console.log("Date:", formattedDate);
     console.log("High:", day.tempmax);
@@ -107,7 +107,7 @@ forecast.forEach(day => {
              slocation.textContent = weatherData.resolvedAddress;
         })
         temp.textContent = weatherData.currentConditions.temp;
-        conditions.textContent = weatherData.currentConditions.conditions;
+        conditions.textContent = `Conditions: ${weatherData.currentConditions.conditions}`;
         feels.textContent = `Feels like: ${weatherData.currentConditions.feelslike}`;
         humidity.textContent = `Humidity: ${weatherData.currentConditions.humidity}%`;
         windspeed.textContent = `Wind Speed: ${weatherData.currentConditions.windspeed}`;
